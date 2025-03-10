@@ -30,16 +30,9 @@ class Line {
         return startPoint;
     }
 
-    public void setStartPoint(Point startPoint) {
-        this.startPoint = startPoint;
-    }
 
     public Point getEndPoint() {
         return endPoint;
-    }
-
-    public void setEndPoint(Point endPoint) {
-        this.endPoint = endPoint;
     }
 
 
