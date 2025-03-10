@@ -4,9 +4,12 @@ public class Main {
     public static void main(String[] args) {
         Line line1 = new Line(new Point(1, 3), new Point(5, 8));
         Line line2 = new Line(10, 11, 15, 19);
-        Line line3 = new Line(line1.endPoint, line2.startPoint);
+        Line line3 = new Line(line1.getEndPoint(), line2.getStartPoint());
         System.out.println("Линия 3 до изменения: " + line3);
-        line3 = new Line(new Point(1, 3), new Point(15, 19));
+        line3.getStartPoint().setX(3);
+        line3.getStartPoint().setY(11);
+        line3.getEndPoint().setX(25);
+        line3.getEndPoint().setY(16);
         System.out.println("Линия 3 после изменения: " + line3);
         double totalLength = line1.getLength() + line2.getLength() + line3.getLength();
         System.out.println("Общая длина линий " + totalLength);
@@ -14,51 +17,9 @@ public class Main {
 
     }
 
-    public static class Point {
-        int x;
-        int y;
 
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        @Override
-        public String toString() {
-            return String.format("{ %d ; %d }", x, y);
-        }
-    }
-
-    static class Line {
-        Point startPoint;
-        Point endPoint;
-
-        public Line(Point start, Point end) {
-            this.startPoint = start;
-            this.endPoint = end;
-        }
-
-        public Line(int x1, int y1, int x2, int y2) {
-            this.startPoint = new Point(x1, y1);
-            this.endPoint = new Point(x2, y2);
-
-        }
-
-
-        @Override
-        public String toString() {
-            return String.format(" Линия  от %s до %s ", startPoint.toString(), endPoint.toString());
-        }
-
-        public double getLength() {
-            int endX = endPoint.x - startPoint.x;
-            int endY = endPoint.y - startPoint.y;
-            return Math.sqrt(endX * endX + endY * endY);
-        }
-
-
-    }
 }
+
 /*
 Создайте класс Линия (Line), расположенную на двумерной плоскости, которая описывается:
 
