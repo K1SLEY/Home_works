@@ -32,6 +32,7 @@ class PolyLine {
 
     }
 
+
     public List<Line> getLines() {
         List<Line> lines = new ArrayList<>();
         for (int i = 0; i < points.size() - 1; i++) {
