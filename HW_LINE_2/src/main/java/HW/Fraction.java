@@ -1,15 +1,19 @@
 package HW;
 
 public final class Fraction {
-    private final int numerator;
-    private final int denominator;
+    private int numerator;
+    private int denominator;
 
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
             throw new IllegalArgumentException("Знаменатель не может быть равным нулю.");
         }
         this.numerator = numerator;
-        this.denominator = denominator < 0 ? -denominator : denominator;
+        this.denominator = denominator;
+        if (this.denominator < 0) {
+            this.numerator = -this.numerator;
+            this.denominator = -this.denominator;
+        }
     }
 
     public String toString() {
